@@ -16,18 +16,21 @@ elecdata <- elecdata[as.Date(elecdata$Time) %in% as.Date(c("2007-02-01","2007-02
 rm("electricity")
 
 ##image 1
+png(filename="image1.png",width = 480, height = 480, units = "px")
 hist(as.numeric(elecdata$Global_active_power) , breaks = 15 , col = "red",
      xlab = "Global Active Power (kilowatts)", ylab = "Frequency",
      main="Global Active Power")
-
+dev.off()
 
 ##image 2
+png(filename="image2.png",width = 480, height = 480, units = "px")
 plot( elecdata$Global_active_power ~ elecdata$Time, type="l",
       xlab = "", ylab = "Global Active Power (kilowatts)",
       main="")
-
+dev.off()
 
 ##image 3
+png(filename="image3.png",width = 480, height = 480, units = "px")
 par(mfrow = c(1, 1))
 plotimage3 <- function(bxty="o"){
   plot( elecdata$Sub_metering_1 ~ elecdata$Time, type="l",
@@ -41,9 +44,9 @@ plotimage3 <- function(bxty="o"){
          bty=bxty)
 }
 plotimage3()
-
+dev.off()
 ##image 4
-
+png(filename="image4.png",width = 480, height = 480, units = "px")
 par(mfrow = c(2 , 2))
 with(elecdata, {
     plot(Time, Global_active_power,  
@@ -56,3 +59,4 @@ with(elecdata, {
     plot( Time,Global_reactive_power, 
          xlab = "datetime", ylab = "Global_reactive_power",main = "", type="l")
     })
+dev.off()
