@@ -17,7 +17,7 @@ rm("electricity")
 
 
 ##image 2
-png(filename="image2.png",width = 480, height = 480, units = "px")
+png(filename="plot2.png",width = 480, height = 480, units = "px")
 plot( elecdata$Global_active_power ~ elecdata$Time, type="l",
       xlab = "", ylab = "Global Active Power (kilowatts)",
       main="")
